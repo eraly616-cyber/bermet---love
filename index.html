@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letter ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffe5ed;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .scene {
+      position: relative;
+      width: 360px;
+      height: 390px;
+      margin: 0 auto;
+    }
+
+    .envelope {
+      position: absolute;
+      z-index: 2;
+      width: 320px;
+      height: 210px;
+      left: 10px;
+      top: 140px;
+      background: #e95d72;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px #d78b9b;
+      overflow: visible;
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #f27b8b;
+      clip-path: polygon(
+        0 0,
+        50% 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+      );
+      border-radius: 8px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .flap {
+      position: absolute;
+      z-index: 4;
+      width: 100%;
+      height: 130px;
+      top: 0;
+      background: #d93655;
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+      );
+      transform-origin: top;
+      transition: transform 0.8s ease;
+    }
+
+    .letter {
+      position: absolute;
+      z-index: 1;
+      width: 300px;
+      min-height: 190px;
+      left: 10px;
+      top: 140px;
+      padding: 20px 15px;
+      box-sizing: border-box;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px #d7a0ad;
+      transition: transform 0.8s ease;
+    }
+
+    .letter h2 {
+      color: #e62d54;
+      margin: 5px 0 15px;
+      font-size: 20px;
+    }
+
+    .letter p {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    .scene.open .flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+.scene:not(.open) .letter {
+    visibility: hidden;
+}
+
+.scene.open .letter {
+    visibility: visible;
+    transform: translateY(-130px);
+    z-index: 5;
+}
+    .scene.open .letter {
+      transform: translateY(-150px);
+      z-index: 5;
+    }
+
+    .buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 28px;
+      border: 2px solid #c92d4e;
+      border-radius: 8px;
+      background: white;
+      color: #c92d4e;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #ffe0e8;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      color: #ed294d;
+      font-size: 25px;
+      pointer-events: none;
+      animation: floatUp 4s linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }.decorations {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decorations span {
+  position: absolute;
+  font-size: 25px;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.decorations span:nth-child(1) {
+  top: 10%;
+  left: 15%;
+}
+
+.decorations span:nth-child(2) {
+  top: 100%;
+  right: 15%;
+}
+
+.decorations span:nth-child(3) {
+  bottom: 20%;
+  left: 10%;
+}
+
+.decorations span:nth-child(4) {
+  bottom: 10%;
+  right: 12%;
+}
+
+.decorations span:nth-child(5) {
+  top: 45%;
+  left: 5%;
+}
+
+.decorations span:nth-child(6) {
+  top: 50%;
+  right: 5%;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+  </style>
+</head>
+
+<body><div class="decorations">
+  <span>✨</span>
+  <span>💗</span>
+  <span>🌸</span>
+  <span>✨</span>
+  <span>💕</span>
+  <span>🌷</span>
+</div>
+  <div class="container">
+
+    <div class="scene" id="scene">
+
+      <div class="letter">
+    <h2>💗 Для Бермет 💗</h2>
+
+    <p>Берметим, ты — особенная часть моего сердца. ❤️ Я не знаю, что будет завтра, но знаю одно: ты мне очень дорога. Мне хочется быть рядом с тобой, беречь тебя и видеть твою улыбку. Я искренне тебя люблю. ❤️ 💗</p>
+
+    <p>
+        Твоя улыбка делает мои дни светлее
+    </p>
+
+    <p>
+        Оставайся такой, какая ты есть,<br>
+        Ты действительно особенная 💗
+    </p>
+    <p>
+        С любовью, Эралы ❤️ </p>
+      </div>
+
+      <div class="envelope">
+        <div class="flap"></div>
+      </div>
+
+    </div>
+    <div class="buttons">
+      <button id="openBtn">OPEN</button>
+      <button id="resetBtn">RESET</button>
+    </div>
+
+  </div>
+
+  <script>
+    const scene = document.getElementById("scene");
+    const openBtn = document.getElementById("openBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    openBtn.addEventListener("click", () => {
+      scene.classList.add("open");
+      createHearts();
+    });
+
+    resetBtn.addEventListener("click", () => {
+      scene.classList.remove("open");
+
+      document.querySelectorAll(".heart").forEach(heart => {
+        heart.remove();
+      });
+    });
+
+    function createHearts() {for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.textContent = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize =
+          (15 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+          (3 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
